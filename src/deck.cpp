@@ -36,7 +36,8 @@ Deck::Deck()
 	
 }
 
-void Deck::showDeck()
+void
+Deck::showDeck()
 {
 	for (int i = 0; i < this->numCards; i++) {
 		std::cout << this->cards[i].toString();
@@ -45,14 +46,16 @@ void Deck::showDeck()
 	std::cout << std::endl;
 }
 
-void Deck::shuffle()
+void
+Deck::shuffle()
 {
 	std::random_device seed_gen;
 	std::mt19937 engine(seed_gen());
 	std::shuffle(this->cards.begin(), this->cards.end(), engine);
 }
 
-Card Deck::draw(int i)
+Card
+Deck::draw(int i)
 {
 	if (i >= this->numCards) {
 		/* error */

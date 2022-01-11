@@ -12,27 +12,32 @@ Card::Card(FaceValue value, FaceSuit faceSuit)
 	this->setFaceSuit(faceSuit);
 }
 
-void Card::setFaceValue(FaceValue value)
+void
+Card::setFaceValue(FaceValue value)
 {
 	this->value = value;
 }
 
-void Card::setFaceSuit(FaceSuit faceSuit)
+void
+Card::setFaceSuit(FaceSuit faceSuit)
 {
 	this->suit.setSuit(faceSuit);
 }
 
-FaceValue Card::getFaceValue()
+FaceValue
+Card::getFaceValue()
 {
 	return this->value;
 }
 
-FaceSuit Card::getFaceSuit()
+FaceSuit
+Card::getFaceSuit()
 {
 	return this->suit.getSuit();
 }
 
-std::string Card::toString()
+std::string
+Card::toString()
 {
 	std::string cardFace;
 	cardFace = this->suit.toString();
@@ -41,14 +46,16 @@ std::string Card::toString()
 	return cardFace;
 }
 
-std::string Card::toStringFaceValue()
+std::string
+Card::toStringFaceValue()
 {
 	std::string cardFaceValue;
 	cardFaceValue = faceValueStringSimple[static_cast<int>(this->value)];
 	return cardFaceValue;
 }
 
-std::string Card::toStringFaceSuit()
+std::string
+Card::toStringFaceSuit()
 {
 	std::string cardFaceSuit;
 	cardFaceSuit = this->suit.toString();

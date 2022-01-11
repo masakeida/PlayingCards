@@ -19,7 +19,8 @@ Deal::Deal()
 	}
 }
 
-void Deal::dealHands(Deck deck)
+void
+Deal::dealHands(Deck deck)
 {
 	int i = 0;
 	while (i < Deck::numCards) {
@@ -32,7 +33,8 @@ void Deal::dealHands(Deck deck)
 	}
 }
 
-void Deal::sortHands()
+void
+Deal::sortHands()
 {
 	for (int i = 0; i < Deal::numPlayers; i++) {
 		std::vector<Card> hand;
@@ -64,7 +66,8 @@ void Deal::sortHands()
 	}
 }
 
-std::vector<Card> Deal::sortCards(std::vector<Card> inputCards)
+std::vector<Card>
+Deal::sortCards(std::vector<Card> inputCards)
 {
 	std::vector<Card> outputCards;
 	std::vector<int> output;
@@ -102,7 +105,8 @@ std::vector<Card> Deal::sortCards(std::vector<Card> inputCards)
 	return outputCards;
 }
 
-void Deal::showHands()
+void
+Deal::showHands()
 {
 	for (int i = 0; i < Deal::numPlayers; i++) {
 		for (int j = 0; j < Deal::numHands; j++) {
@@ -113,7 +117,8 @@ void Deal::showHands()
 	}
 }
 
-void Deal::displayHands()
+void
+Deal::displayHands()
 {
 	for (int i = 0; i < Deal::numPlayers; i++) {
 		for (int j = Deck::numSuit - 1; j > -1; j--) { /* from Spades to Clubs */

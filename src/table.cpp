@@ -7,7 +7,8 @@ Table::Table()
 {
 }
 
-void Table::makeDeal(int i)
+void
+Table::makeDeal(int i)
 {
 	Deal nextDeal;
 	this->deals.emplace_back(nextDeal);
@@ -16,7 +17,8 @@ void Table::makeDeal(int i)
 	this->deals[i].sortHands();
 }
 
-void Table::displayHands(int i)
+void
+Table::displayHands(int i)
 {
 	//this->deals[i].showHands();
 	this->deals[i].displayHands();

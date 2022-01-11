@@ -2,7 +2,9 @@
 #include <string>
 #include "table.hpp"
 
-int main(int argc, char *argv[]) {
+int
+main(int argc, char *argv[])
+{
 	std::string str("This is the Playing Cards");
 	std::cout << str << std::endl;
 	std::cout << std::endl;
