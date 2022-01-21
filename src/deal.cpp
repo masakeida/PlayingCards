@@ -5,6 +5,7 @@
 #include "card.hpp"
 #include "deck.hpp"
 #include "deal.hpp"
+#include "table.hpp"
 
 Deal::Deal()
 {	
@@ -120,13 +121,16 @@ Deal::showHands()
 void
 Deal::displayHands()
 {
-	for (int i = 0; i < Deal::numPlayers; i++) {
-		displayHandsByPlayer(i);
-	}
+	displayHandsByPlayerNS(static_cast<int>(PlayerSeat::NORTH));
+	displayHandsByPlayerEW(
+		static_cast<int>(PlayerSeat::WEST),
+		static_cast<int>(PlayerSeat::EAST)
+		);
+	displayHandsByPlayerNS(static_cast<int>(PlayerSeat::SOUTH));
 }
 
 void
-Deal::displayHandsByPlayer(int i)
+Deal::displayHandsByPlayerNS(int i)
 {
 	for (int j = Deck::numSuit - 1; j > -1; j--) { /* from Spades to Clubs */
 		std::vector<Card> cardsSuit;
@@ -147,7 +151,61 @@ Deal::displayHandsByPlayer(int i)
 				cardsListBySuit += " ";
 			}
 		}
-		std::cout << cardsListBySuit << std::endl;
+		std::cout << "\t\t\t" << cardsListBySuit << std::endl;
+	}
+	std::cout << std::endl;
+}
+
+void
+Deal::displayHandsByPlayerEW(int i, int h)
+{
+	for (int j = Deck::numSuit - 1; j > -1; j--) { /* from Spades to Clubs */
+		std::vector<Card> cardsSuitE;
+		std::string cardsListBySuitE;
+		Card suitCardE;
+		suitCardE.setFaceSuit(static_cast<FaceSuit>(j));
+		std::vector<Card> cardsSuitW;
+		std::string cardsListBySuitW;
+		Card suitCardW;
+		suitCardW.setFaceSuit(static_cast<FaceSuit>(j));
+
+		for (int k = 0; k < Deal::numHands; k++) {
+			int s = static_cast<int>(this->sortedHands[i][k].getFaceSuit());
+			if (j == s) {
+				cardsSuitE.emplace_back(this->sortedHands[i][k]);
+			}
+		}
+		cardsListBySuitE += suitCardE.toStringFaceSuit();
+		cardsListBySuitE += ": ";
+		if (cardsSuitE.size() != 0) {
+			for (int k = 0; k < cardsSuitE.size(); k++) {
+				cardsListBySuitE += cardsSuitE[k].toStringFaceValue();
+				cardsListBySuitE += " ";
+			}
+		}
+
+		for (int k = 0; k < Deal::numHands; k++) {
+			int s = static_cast<int>(this->sortedHands[h][k].getFaceSuit());
+			if (j == s) {
+				cardsSuitW.emplace_back(this->sortedHands[h][k]);
+			}
+		}
+		cardsListBySuitW += suitCardW.toStringFaceSuit();
+		cardsListBySuitW += ": ";
+		if (cardsSuitW.size() != 0) {
+			for (int k = 0; k < cardsSuitW.size(); k++) {
+				cardsListBySuitW += cardsSuitW[k].toStringFaceValue();
+				cardsListBySuitW += " ";
+			}
+		}
+
+		if (cardsListBySuitW.length() < 8) {
+			std::cout << "\t" << cardsListBySuitW << "\t\t\t\t" << cardsListBySuitE << std::endl;
+		} else if (cardsListBySuitW.length() > 15) {
+			std::cout << "\t" << cardsListBySuitW << "\t\t" << cardsListBySuitE << std::endl;
+		} else {
+			std::cout << "\t" << cardsListBySuitW << "\t\t\t" << cardsListBySuitE << std::endl;
+		}
 	}
 	std::cout << std::endl;
 }

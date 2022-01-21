@@ -5,6 +5,15 @@
 #include "deck.hpp"
 #include "deal.hpp"
 
+enum class PlayerSeat
+{
+	WEST,  // 0
+	NORTH, // 1
+	EAST,  // 2
+	SOUTH, // 3
+	LAST
+};
+
 class Table
 {
 private:

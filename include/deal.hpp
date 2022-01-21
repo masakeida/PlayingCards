@@ -11,7 +11,8 @@ private:
 	std::vector<std::vector<Card>> sortedHands;
 
 	std::vector<Card> sortCards(std::vector<Card>);
-	void displayHandsByPlayer(int i);
+	void displayHandsByPlayerNS(int i);
+	void displayHandsByPlayerEW(int i, int h);
 
 public:
 	static const int numPlayers = 4;
