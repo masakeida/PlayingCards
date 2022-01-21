@@ -123,8 +123,8 @@ Deal::displayHands()
 {
 	displayHandsByPlayerNS(static_cast<int>(PlayerSeat::NORTH));
 	displayHandsByPlayerEW(
-		static_cast<int>(PlayerSeat::WEST),
-		static_cast<int>(PlayerSeat::EAST)
+		static_cast<int>(PlayerSeat::EAST),
+		static_cast<int>(PlayerSeat::WEST)
 		);
 	displayHandsByPlayerNS(static_cast<int>(PlayerSeat::SOUTH));
 }
