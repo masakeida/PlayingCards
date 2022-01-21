@@ -146,9 +146,9 @@ Deal::displayHandsByPlayerEW(int i, int h)
 		std::string cardsListBySuitE = cardListByPlayerSuit(i, j);
 		std::string cardsListBySuitW = cardListByPlayerSuit(h, j);
 
-		if (cardsListBySuitW.length() < 8) {
+		if (cardsListBySuitW.length() < this->cardListMinLength) {
 			std::cout << "\t" << cardsListBySuitW << "\t\t\t\t" << cardsListBySuitE << std::endl;
-		} else if (cardsListBySuitW.length() > 15) {
+		} else if (cardsListBySuitW.length() >= this->cardListMaxLength) {
 			std::cout << "\t" << cardsListBySuitW << "\t\t" << cardsListBySuitE << std::endl;
 		} else {
 			std::cout << "\t" << cardsListBySuitW << "\t\t\t" << cardsListBySuitE << std::endl;

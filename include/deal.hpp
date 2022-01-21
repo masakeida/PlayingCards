@@ -7,6 +7,8 @@ class Deal
 {
 
 private:
+	static const int cardListMinLength = 8;
+	static const int cardListMaxLength = 16;
 	std::vector<std::vector<Card>> hands;
 	std::vector<std::vector<Card>> sortedHands;
 
