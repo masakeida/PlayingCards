@@ -121,27 +121,33 @@ void
 Deal::displayHands()
 {
 	for (int i = 0; i < Deal::numPlayers; i++) {
-		for (int j = Deck::numSuit - 1; j > -1; j--) { /* from Spades to Clubs */
-			std::vector<Card> cardsSuit;
-			std::string cardsListBySuit;
-			Card suitCard;
-			suitCard.setFaceSuit(static_cast<FaceSuit>(j));
-			for (int k = 0; k < Deal::numHands; k++) {
-				int s = static_cast<int>(this->sortedHands[i][k].getFaceSuit());
-				if (j == s) {
-					cardsSuit.emplace_back(this->sortedHands[i][k]);
-				}
-			}
-			cardsListBySuit += suitCard.toStringFaceSuit();
-			cardsListBySuit += ": ";
-			if (cardsSuit.size() != 0) {
-				for (int k = 0; k < cardsSuit.size(); k++) {
-					cardsListBySuit += cardsSuit[k].toStringFaceValue();
-					cardsListBySuit += " ";
-				}
-			}
-			std::cout << cardsListBySuit << std::endl;
-		}
-		std::cout << std::endl;
+		displayHandsByPlayer(i);
 	}
+}
+
+void
+Deal::displayHandsByPlayer(int i)
+{
+	for (int j = Deck::numSuit - 1; j > -1; j--) { /* from Spades to Clubs */
+		std::vector<Card> cardsSuit;
+		std::string cardsListBySuit;
+		Card suitCard;
+		suitCard.setFaceSuit(static_cast<FaceSuit>(j));
+		for (int k = 0; k < Deal::numHands; k++) {
+			int s = static_cast<int>(this->sortedHands[i][k].getFaceSuit());
+			if (j == s) {
+				cardsSuit.emplace_back(this->sortedHands[i][k]);
+			}
+		}
+		cardsListBySuit += suitCard.toStringFaceSuit();
+		cardsListBySuit += ": ";
+		if (cardsSuit.size() != 0) {
+			for (int k = 0; k < cardsSuit.size(); k++) {
+				cardsListBySuit += cardsSuit[k].toStringFaceValue();
+				cardsListBySuit += " ";
+			}
+		}
+		std::cout << cardsListBySuit << std::endl;
+	}
+	std::cout << std::endl;
 }
