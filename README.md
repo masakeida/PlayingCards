@@ -4,7 +4,7 @@ Deal 13 cards each for 4 players.
 
 ```
 % ./PlayingCards
-This is a hand generator for trick taking games.
+This is a hand generator for trick-taking games.
 
                         S: J 8 3
                         H: A K J 9 5 3

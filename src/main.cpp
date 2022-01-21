@@ -5,7 +5,7 @@
 int
 main(int argc, char *argv[])
 {
-	std::string str("This is a hand generator for trick taking games.");
+	std::string str("This is a hand generator for trick-taking games.");
 	std::cout << str << std::endl;
 	std::cout << std::endl;
 
