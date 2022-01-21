@@ -13,6 +13,7 @@ private:
 	std::vector<Card> sortCards(std::vector<Card>);
 	void displayHandsByPlayerNS(int i);
 	void displayHandsByPlayerEW(int i, int h);
+	std::string cardListByPlayerSuit(int i, int j);
 
 public:
 	static const int numPlayers = 4;
