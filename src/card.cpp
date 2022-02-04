@@ -41,8 +41,7 @@ Card::toString()
 {
 	std::string cardFace;
 	cardFace = this->suit.toString();
-	cardFace = cardFace
-		+ faceValueStringSimple[static_cast<int>(this->value)];
+	cardFace += faceValueStringSimple[static_cast<int>(this->value)];
 	return cardFace;
 }
 

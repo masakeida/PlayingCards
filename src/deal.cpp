@@ -27,7 +27,12 @@ Deal::dealHands(Deck deck)
 	while (i < Deck::numCards) {
 		for (int j = 0; j < Deal::numHands; j++) {
 			for (int k = 0; k < Deal::numPlayers; k++) {
-				this->hands[k][j] = deck.draw(i);
+				Card drawnCard = deck.draw(i);
+				if (drawnCard.toString() == "Jo7" ) {
+					/* error */
+					std::cerr << "error: something wrong in Dea::dealHands()" << std::endl;
+				}
+				this->hands[k][j] = drawnCard;
 				i++;
 			}
 		}
